@@ -1,7 +1,7 @@
 import { converteCsv, filtraDados } from "./csv.js";
 
 const dadosCsv = converteCsv();
-
+console.log(dadosCsv);
 // Questao 1
 const ctxQ1 = document.querySelector("#graficoQ1");
 const dadosQ1 = filtraDados(dadosCsv, "categoria_detalhada");
@@ -79,20 +79,32 @@ new Chart(ctxQ2, {
 
 // Questao 3
 const ctxQ3 = document.querySelector("#graficoQ3");
-const dadosQ3 = filtraDados(dadosCsv, "tipo_chamado");
+
+let labelsQ3 = [];
+
+Object.entries(dadosCsv)
+  .map(
+    ([k, v]) =>
+      `${v["data_chamado"].split("-")[1]}/${v["data_chamado"].split("-")[0]}`,
+  )
+  .forEach((element) => {
+    if (!labelsQ3.includes(element)) {
+      labelsQ3.push(element);
+    }
+  });
+console.log(labelsQ3);
 
 new Chart(ctxQ3, {
   type: "line",
 
   data: {
-    labels: formataLabelPorcentagem(dadosQ2),
+    labels: labelsQ3,
     datasets: [
       {
         label: "Total de chamados",
         data: dadosQ2[1],
-        backgroundColor: ["#ef4444", "#ef4444"],
+        backgroundColor: ["#ef4444", "#6366f1"],
         borderRadius: 8,
-        fill: true,
         borderSkipped: false,
         barThickness: 80,
       },
