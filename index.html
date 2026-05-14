@@ -4,11 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-  <body>
-    <div style="width: 600px; height: 300px">
-        <canvas id="testeGrafico"></canvas>
+  <body
+    style="
+      display: flex;
+      width: 100dvw;
+      height: 100dvh;
+      justify-content: center;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 50px;
+        width: 600px;
+      "
+    >
+      <div style="height: 300px">
+        <h1>Grafico Barras - Questao 1</h1>
+        <canvas id="graficoQ1"></canvas>
+      </div>
+      <div style="height: 300px">
+        <h1>Grafico Doughnut - Questao 2</h1>
+        <canvas id="graficoQ2"></canvas>
+      </div>
+
+      <div style="height: 300px">
+        <h1>Grafico Linhas - Questao 3</h1>
+        <canvas id="graficoQ3"></canvas>
+      </div>
     </div>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
